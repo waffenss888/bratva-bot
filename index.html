@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#151821">
+  <title>Братва Бот</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100dvh;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #151821;
+      color: #ffffff;
+      font-family: Arial, sans-serif;
+    }
+
+    main {
+      width: 100%;
+      max-width: 420px;
+      padding: 32px 24px;
+      border: 1px solid #363c50;
+      border-radius: 20px;
+      background: #222737;
+      text-align: center;
+    }
+
+    h1 {
+      margin: 0 0 16px;
+      font-size: 32px;
+    }
+
+    p {
+      color: #cbd0df;
+      line-height: 1.6;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 16px;
+      padding: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #8ab4ff;
+      color: #101827;
+      font: inherit;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #ffffff;
+      outline-offset: 4px;
+    }
+
+    #status {
+      min-height: 48px;
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Братва Бот</h1>
+    <p>Первый экран нашего проекта.</p>
+
+    <button id="start" type="button">Начать</button>
+
+    <p id="status" role="status" aria-live="polite">
+      Нажми «Начать», чтобы проверить кнопку.
+    </p>
+  </main>
+
+  <script>
+    const startButton = document.getElementById("start");
+    const statusText = document.getElementById("status");
+
+    startButton.addEventListener("click", () => {
+      statusText.textContent =
+        "Кнопка работает! Это тестовый экран, без подключения к игре.";
+      startButton.textContent = "Проверить ещё раз";
+    });
+  </script>
+</body>
+</html>
