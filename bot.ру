@@ -1,0 +1,31 @@
+from playwright.sync_api import sync_playwright
+import time
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=False)
+    page = browser.new_page()
+
+    page.goto("https://vmmo.bratki.mobi")
+
+    input("Войди в игру, открой район и нажми Enter здесь...")
+
+    attack = page.get_by_role("button", name="Атаковать любого")
+    home = page.get_by_role("button", name="На главную")
+
+    if attack.count() == 1:
+        attack.click()
+        print("Нажал: Атаковать любого")
+        time.sleep(3)
+    else:
+        print("Кнопка 'Атаковать любого' не найдена или найдена не однозначно")
+        browser.close()
+        raise SystemExit
+
+    if home.count() == 1:
+        home.click()
+        print("Нажал: На главную")
+    else:
+        print("Кнопка 'На главную' не найдена или найдена не однозначно")
+
+    input("Проверь результат и нажми Enter, чтобы закрыть браузер...")
+    browser.close()
